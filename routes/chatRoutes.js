@@ -1,10 +1,8 @@
 import express from 'express';
+import { saveMessage } from '../controllers/chatController.js';
 
-const chatRouter = express.Router();
+const router = express.Router();
 
-// Example route for handling chat input
-chatRouter.post('/message', (req, res) => {
-    res.send('Chat message handling route');
-});
+router.post('/message', saveMessage); // Save chat message
 
-export default chatRouter;
+export default router;

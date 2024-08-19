@@ -1,10 +1,9 @@
 import express from 'express';
+import { analyzeInput } from '../controllers/aiController.js';
 
-const aiRouter = express.Router();
+const router = express.Router();
 
-// Example route for AI processing
-aiRouter.post('/analyze', (req, res) => {
-    res.send('AI analysis route');
-});
+// Save AI analysis
+router.post('/analyze', analyzeInput); 
 
-export default aiRouter;
+export default router;

@@ -1,15 +1,15 @@
 import express from 'express';
+import { createUser, createGuestUser, getUsers } from '../controllers/userController.js';
 
-const userRouter = express.Router();
+const router = express.Router();
 
-// Example route for user registration
-userRouter.post('/register', (req, res) => {
-    res.send('User registration route');
-});
+// Create a regular user
+router.post('/register', createUser); 
 
-// Example route for user login
-userRouter.post('/login', (req, res) => {
-    res.send('User login route');
-});
+ // Create a guest user
+router.post('/guest', createGuestUser);
 
-export default userRouter;
+// List all users
+router.get('/users', getUsers); 
+
+export default router;

@@ -1,10 +1,8 @@
 import express from 'express';
+import { selectND } from '../controllers/ndController.js';
 
-const ndRouter = express.Router();
+const router = express.Router();
 
-// Example route for selecting neurodivergent category
-ndRouter.post('/select', (req, res) => {
-    res.send('Neurodivergent category selection route');
-});
+router.post('/select', selectND); // Select ND situation
 
-export default ndRouter;
+export default router;
