@@ -1,4 +1,6 @@
 import User from '../models/userModel.js';
+import jwt from 'jsonwebtoken';
+
 
 // Create a new user
 export const createUser = async (req, res) => {
@@ -12,14 +14,18 @@ export const createUser = async (req, res) => {
     }
 };
 
-// Create a guest user
+// Create a guest user and issue a JWT
 export const createGuestUser = async (req, res) => {
     try {
         // Generate a unique guest username
         const guestUsername = `guest${Math.floor(Math.random() * 10000)}`;
         const guestUser = new User({ username: guestUsername, isGuest: true });
         await guestUser.save();
-        res.status(201).json({ message: 'Guest user created', user: guestUser });
+
+        // Create JWT token
+        const token = jwt.sign({ userId: guestUser._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+
+        res.status(201).json({ message: 'Guest user created', token });
     } catch (error) {
         res.status(400).json({ error: error.message });
     }
