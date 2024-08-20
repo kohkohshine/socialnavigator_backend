@@ -1,8 +1,8 @@
 import express from 'express';
 import { saveMessage } from '../controllers/chatController.js';
 
-const router = express.Router();
+const ChatRouter = express.Router();
 
 router.post('/message', saveMessage); // Save chat message
 
-export default router;
+export default ChatRouter;
