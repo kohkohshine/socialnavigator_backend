@@ -1,21 +1,10 @@
 import express from 'express';
-import {
-    createUser,
-    createGuestUser,
-    updateUser,
-    getUsers,
-    getUserById,
-} from '../controllers/userController.js';
-import { verifyToken } from '../middlewares/authMiddleware.js';
+import { createGuestUser, getGuestUser } from '../controllers/userController.js';
 
-const UserRouter = express.Router();
+const router = express.Router();
 
-// User registration route without validation and rate limiting
-router.post('/register', createUser);
 router.post('/guest', createGuestUser);
 
-router.get('/users', verifyToken, getUsers);
-router.get('/users/:id', verifyToken, getUserById);
-router.patch('/users/:id', verifyToken, updateUser);
+router.get('/guests', getGuestUser);
 
-export default UserRouter;
+export default router;

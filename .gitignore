@@ -1,0 +1,52 @@
+# Node.js specific:
+node_modules/             # Exclude node_modules folder, which contains installed dependencies
+npm-debug.log             # Exclude npm debug log files
+yarn-debug.log            # Exclude yarn debug log files
+yarn-error.log            # Exclude yarn error log files
+package-lock.json         # Include if you want to ensure exact versions across different environments
+yarn.lock                 # Include if using Yarn to manage dependencies
+
+# Logs
+logs/                     # Exclude custom logs directory
+*.log                     # Exclude all log files in any directory
+npm-debug.log*            # Exclude all npm debug logs
+yarn-debug.log*           # Exclude all yarn debug logs
+yarn-error.log*           # Exclude all yarn error logs
+
+# Environment Variables
+.env                      # Exclude .env file containing sensitive environment variables
+.env.local                # Exclude local environment files
+.env.*                    # Exclude all variant env files like .env.development, .env.test
+
+# Operating System files
+.DS_Store                 # Exclude macOS file system metadata
+Thumbs.db                 # Exclude Windows file system metadata
+*.swp                     # Exclude swap files from Vim and other editors
+*.swo                     # Exclude older swap files
+
+# Editor specific
+.vscode/                  # Exclude VSCode settings folder
+.idea/                    # Exclude WebStorm/IntelliJ project files
+*.sublime-project         # Exclude Sublime Text project files
+*.sublime-workspace       # Exclude Sublime Text workspace files
+
+# Build and Coverage Directories
+coverage/                 # Exclude test coverage reports
+dist/                     # Exclude distribution folder, e.g., compiled TypeScript
+build/                    # Exclude build folder for frontend builds
+public/build              # Exclude build artifacts from frontend tools like Webpack
+.tmp/                     # Exclude temporary files
+.temp/                    # Exclude temporary files
+
+# Miscellaneous
+!.env.example             # Include env example to guide on required environment variables
+*~                        # Exclude temporary editor files ending with ~
+*.bak                     # Exclude backup files
+*.tmp                     # Exclude temporary files with tmp extension
+
+# Dependencies
+/.pnp                     # Exclude PnP files used by Yarn 2
+.pnp.js                   # Exclude PnP loader used by Yarn 2
+
+# Optional npm cache directory
+.npm                      # Exclude npm cache

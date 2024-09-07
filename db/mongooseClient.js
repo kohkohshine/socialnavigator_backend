@@ -1,20 +1,17 @@
 import mongoose from 'mongoose';
-import chalk from 'chalk';
-import dotenv from 'dotenv';
+import chalk from '../lib/chalkColors.js';
 
-dotenv.config();
-
-const connectDB = async () => {
-    try {
-        await mongoose.connect(process.env.MONGODB_URI);
-        console.log(chalk.green('MongoDB Atlas Connected...'));
-    } catch (err) {
-        console.error(chalk.red(`Error: ${err.message}`));
-        process.exit(1);
-    }
+const mongooseClient = async () => {
+  try {
+    await mongoose.connect(process.env.MONGODB_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+    console.log(chalk.success('Connected to MongoDB'));
+  } catch (error) {
+    console.error(chalk.error('Error connecting to MongoDB:'), error);
+    process.exit(1); 
+  }
 };
 
-export default connectDB;
-
-// Automatically connect when the module is imported
-connectDB();
+export default mongooseClient;
