@@ -5,8 +5,9 @@ import mongooseClient from './db/mongooseClient.js';
 import reviewRoutes from './routes/reviewRoutes.js';
 import errorHandler from './middleware/errorHandler.js';
 import chalk from './lib/chalkColors.js'; 
+
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 26000;
 
 app.use(express.json());
 

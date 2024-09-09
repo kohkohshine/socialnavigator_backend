@@ -1,17 +1,29 @@
-import mongoose from 'mongoose';
-import chalk from '../lib/chalkColors.js';
+import mongoose from 'mongoose';  
+import dotenv from 'dotenv';     
+import chalk from '../lib/chalkColors.js';  
+
+
+dotenv.config();
 
 const mongooseClient = async () => {
   try {
-    await mongoose.connect(process.env.MONGODB_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+    const uri = process.env.MONGODB_URI;
+
+   
+    if (!uri) {
+      throw new Error('MONGODB_URI is not defined. Check your .env file.');
+    }
+
+  
+    await mongoose.connect(uri);
+
+   
     console.log(chalk.success('Connected to MongoDB'));
   } catch (error) {
+  
     console.error(chalk.error('Error connecting to MongoDB:'), error);
-    process.exit(1); 
+    process.exit(1);
   }
 };
 
-export default mongooseClient;
+export default mongooseClient; 
