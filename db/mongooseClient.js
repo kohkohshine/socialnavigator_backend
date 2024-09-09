@@ -2,8 +2,7 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';     
 import chalk from '../lib/chalkColors.js';  
 
-
-dotenv.config();
+dotenv.config({ path: '.env.local' });
 
 const mongooseClient = async () => {
   try {
