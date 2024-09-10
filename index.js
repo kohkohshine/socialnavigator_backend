@@ -17,6 +17,10 @@ mongooseClient();
 
 //app.use('/api/users', userRoutes);
 
+app.get('/', (req, res) => {
+  res.send('Welcome to Social Navigator Backend');
+});
+
 app.use('/api/reviews', reviewRoutes);
 
 app.use(errorHandler);
