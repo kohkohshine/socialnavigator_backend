@@ -16,11 +16,11 @@ const simulatedReview = {
     ],
     insights: [
       {
-        title: "Prioritize Key Points:",
+        title: "Prioritize Key Points",
         description: "In meetings, focus on the most important information first. If there’s time, you can add more details later."
       },
       {
-        title: "Check-In:",
+        title: "Check-In",
         description: "If you’re unsure about how your input was received, a quick follow-up with your manager can help clear up any misunderstandings and ensure you’re aligned."
       }
     ]
