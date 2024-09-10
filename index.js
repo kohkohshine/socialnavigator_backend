@@ -11,11 +11,18 @@ const PORT = process.env.PORT || 26000;
 
 app.use(express.json());
 
-app.use(cors());
+
+app.use(cors({
+  origin: 'https://socialnavigator.netlify.app', 
+  credentials: true, 
+}));
 
 mongooseClient();
 
 //app.use('/api/users', userRoutes);
+
+app.get("/", (req, res) => 
+res.json('You\'ve made it to Social Navigator\'s backend'));
 
 app.use('/api/reviews', reviewRoutes);
 
