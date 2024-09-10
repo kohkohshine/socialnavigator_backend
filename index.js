@@ -11,10 +11,7 @@ const PORT = process.env.PORT || 26000;
 
 app.use(express.json());
 
-app.use(cors({
-  origin: '*', // Allows all origins temporarily for testing
-  credentials: true,
-}));
+app.use(cors());
 
 mongooseClient();
 
