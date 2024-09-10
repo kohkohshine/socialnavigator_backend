@@ -12,10 +12,7 @@ const PORT = process.env.PORT || 26000;
 app.use(express.json());
 
 
-app.use(cors({
-  origin: 'https://socialnavigator.netlify.app', 
-  credentials: true, 
-}));
+app.use(cors());
 
 mongooseClient();
 
